@@ -1,0 +1,143 @@
+(function () {
+  'use strict';
+
+  /* Mobile Navigation */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMobile = document.querySelector('.nav-mobile');
+
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', function () {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navMobile.classList.toggle('is-open');
+      document.body.style.overflow = expanded ? '' : 'hidden';
+    });
+
+    navMobile.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMobile.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  /* FAQ Accordion */
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+
+      document.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Form Validation */
+  function validateField(field) {
+    const group = field.closest('.form-group');
+    const errorEl = group ? group.querySelector('.form-error') : null;
+    let valid = true;
+    let message = '';
+
+    if (field.hasAttribute('required') && !field.value.trim()) {
+      valid = false;
+      message = 'This field is required.';
+    } else if (field.type === 'email' && field.value.trim()) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(field.value.trim())) {
+        valid = false;
+        message = 'Please enter a valid email address.';
+      }
+    } else if (field.type === 'tel' && field.value.trim()) {
+      const phonePattern = /^[\d\s+()-]{8,}$/;
+      if (!phonePattern.test(field.value.trim())) {
+        valid = false;
+        message = 'Please enter a valid phone number.';
+      }
+    } else if (field.type === 'date' && field.value) {
+      const selected = new Date(field.value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selected < today) {
+        valid = false;
+        message = 'Please select a future date.';
+      }
+    }
+
+    if (group) {
+      group.classList.toggle('has-error', !valid);
+    }
+    field.classList.toggle('error', !valid);
+    if (errorEl) {
+      errorEl.textContent = message;
+    }
+
+    return valid;
+  }
+
+  function validateForm(form) {
+    const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let allValid = true;
+
+    fields.forEach(function (field) {
+      if (!validateField(field)) {
+        allValid = false;
+      }
+    });
+
+    return allValid;
+  }
+
+  document.querySelectorAll('.demo-form').forEach(function (form) {
+    form.querySelectorAll('input, select, textarea').forEach(function (field) {
+      field.addEventListener('blur', function () {
+        if (field.value.trim() || field.hasAttribute('required')) {
+          validateField(field);
+        }
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!validateForm(form)) {
+        const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstError) {
+          firstError.focus();
+        }
+        return;
+      }
+
+      const wrapper = form.closest('.form-wrapper');
+      const success = document.querySelector('[data-form-success="' + form.id + '"]');
+
+      if (wrapper) {
+        wrapper.classList.add('is-hidden');
+      }
+      if (success) {
+        success.classList.add('is-visible');
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+      }
+
+      form.reset();
+    });
+  });
+
+  /* Date picker min date = today */
+  const dateInputs = document.querySelectorAll('input[type="date"]');
+  if (dateInputs.length) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInputs.forEach(function (input) {
+      input.setAttribute('min', today);
+    });
+  }
+})();
