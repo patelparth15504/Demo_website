@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | Artisan Plumbing Co. — Premium Plumber Sydney Eastern Suburbs</title>
+  <meta name="description" content="Book a consultation with Artisan Plumbing Co. Choose your service, preferred date and time. Premium plumbing across Sydney's Eastern Suburbs.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+
+  <div class="emergency-banner">
+    Burst pipe? Call 24/7 — <a href="tel:0412345678">0412 345 678</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-name">Artisan Plumbing Co.</span>
+        <span class="logo-tagline">Premium Plumber · Sydney East</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="areas.html">Service Areas</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-ctas">
+        <a href="tel:0412345678" class="btn btn--outline btn--call-mobile">Call</a>
+        <a href="tel:0412345678" class="btn btn--outline">0412 345 678</a>
+        <a href="book.html" class="btn btn--primary">Book Now</a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="areas.html">Service Areas</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="book.html">Book Appointment</a></li>
+      </ul>
+      <div class="nav-mobile-ctas">
+        <a href="tel:0412345678" class="btn btn--outline btn--block">Call 0412 345 678</a>
+        <a href="book.html" class="btn btn--primary btn--block">Book Appointment</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> <span>/ Book Appointment</span>
+        </nav>
+        <h1>Book an Appointment</h1>
+        <p>Request a free on-site consultation. We'll confirm your appointment within 2 business hours.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container form-section">
+        <div class="form-wrapper">
+          <form id="booking-form" class="demo-form form-grid" novalidate>
+            <div class="form-group">
+              <label for="service-type">Service Type <span class="required">*</span></label>
+              <select id="service-type" name="service-type" required>
+                <option value="">Select a service…</option>
+                <option value="bathroom">Bathroom &amp; Ensuite Renovation</option>
+                <option value="kitchen">Kitchen &amp; Laundry Plumbing</option>
+                <option value="hot-water">Hot Water System</option>
+                <option value="leak">Leak Detection &amp; Pipe Relining</option>
+                <option value="gas">Gas Fitting &amp; Compliance</option>
+                <option value="heritage">Heritage &amp; Period Home Plumbing</option>
+                <option value="emergency">Emergency (urgent — call instead)</option>
+                <option value="other">Other / Not sure</option>
+              </select>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="preferred-date">Preferred Date <span class="required">*</span></label>
+                <input type="date" id="preferred-date" name="preferred-date" required>
+                <span class="form-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="preferred-time">Preferred Time <span class="required">*</span></label>
+                <select id="preferred-time" name="preferred-time" required>
+                  <option value="">Select a time…</option>
+                  <option value="morning">Morning (7:00am – 12:00pm)</option>
+                  <option value="afternoon">Afternoon (12:00pm – 5:30pm)</option>
+                  <option value="flexible">Flexible — any time</option>
+                </select>
+                <span class="form-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="booking-name">Full Name <span class="required">*</span></label>
+                <input type="text" id="booking-name" name="name" autocomplete="name" required>
+                <span class="form-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="booking-phone">Phone <span class="required">*</span></label>
+                <input type="tel" id="booking-phone" name="phone" autocomplete="tel" placeholder="04XX XXX XXX" required>
+                <span class="form-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-email">Email <span class="required">*</span></label>
+              <input type="email" id="booking-email" name="email" autocomplete="email" required>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-address">Address / Suburb <span class="required">*</span></label>
+              <input type="text" id="booking-address" name="address" autocomplete="street-address" placeholder="e.g. 42 Oxford St, Paddington" required>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="booking-description">Brief Description</label>
+              <textarea id="booking-description" name="description" placeholder="Tell us about your project — scope, timeline, any specific fixtures or concerns…"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <p class="form-note">For emergencies, please call <a href="tel:0412345678">0412 345 678</a> directly — don't wait for a booking confirmation.</p>
+
+            <button type="submit" class="btn btn--primary btn--large btn--block">Submit Booking Request</button>
+          </form>
+        </div>
+
+        <div class="form-success" data-form-success="booking-form" tabindex="-1" role="status">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <h3>Booking Request Received</h3>
+          <p>Thanks — we'll confirm your appointment within 2 business hours. For urgent matters, call <a href="tel:0412345678">0412 345 678</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="logo-name">Artisan Plumbing Co.</p>
+          <p>Premium bathroom and kitchen renovations, designer fixtures, and heritage restorations across Sydney's Eastern Suburbs.</p>
+          <p class="mt-1">ABN 12 345 678 901 · NSW Licence #123456C</p>
+        </div>
+        <div>
+          <p class="footer-heading">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="areas.html">Service Areas</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Services</p>
+          <ul class="footer-links">
+            <li><a href="services.html#bathroom">Bathroom Renovations</a></li>
+            <li><a href="services.html#hot-water">Hot Water Systems</a></li>
+            <li><a href="services.html#leak-detection">Leak Detection</a></li>
+            <li><a href="services.html#gas">Gas Fitting</a></li>
+            <li><a href="services.html#heritage">Heritage Plumbing</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-contact">
+            <li><a href="tel:0412345678">0412 345 678</a></li>
+            <li><a href="mailto:hello@artisanplumbing.com.au">hello@artisanplumbing.com.au</a></li>
+            <li>Paddington NSW 2021</li>
+            <li>Mon–Fri 7:00am – 5:30pm</li>
+            <li>Sat 8:00am – 12:00pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Artisan Plumbing Co. All rights reserved.</p>
+        <p>All prices GST inclusive where stated. Demo website — fictional business.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a href="tel:0412345678" class="btn btn--outline">Call Now</a>
+    <a href="book.html" class="btn btn--primary">Book</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
